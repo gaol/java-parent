@@ -48,13 +48,14 @@
     <modular.jdk.props></modular.jdk.props>
 
     <version.clean.plugin>3.1.0</version.clean.plugin>
+    <version.dependency.plugin>2.10</version.dependency.plugin>
+    <version.deploy.plugin>2.8.2</version.deploy.plugin>
     <version.compiler.plugin>3.8.0</version.compiler.plugin>
     <version.gpg.plugin>1.6</version.gpg.plugin>
     <version.install.plugin>2.5.2</version.install.plugin>
     <version.javadoc.plugin>3.0.1</version.javadoc.plugin>
     <version.jar.plugin>3.1.0</version.jar.plugin>
     <version.resources.plugin>3.1.0</version.resources.plugin>
-    <version.dependency.plugin>2.10</version.dependency.plugin>
     <version.buildnumber.plugin>1.4</version.buildnumber.plugin>
     <version.assembly.plugin>3.1.0</version.assembly.plugin>
     <version.exec.plugin>1.6.0</version.exec.plugin>
@@ -103,6 +104,16 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
           <version>${version.clean.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${version.dependency.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>${version.deploy.plugin}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -316,6 +327,13 @@
 
       <build>
         <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+              <updateReleaseInfo>true</updateReleaseInfo>
+            </configuration>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
