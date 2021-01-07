@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.gaol</groupId>
   <artifactId>java-parent</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
   <name>Java Parent Project</name>
   <licenses>
@@ -34,6 +34,7 @@
     <connection>scm:git:git@github.com:gaol/java-parent.git</connection>
     <developerConnection>scm:git:git@github.com:gaol/java-parent.git</developerConnection>
     <url>http://github.com/gaol/java-parent</url>
+    <tag>java-parent-1.0.0</tag>
   </scm>
 
   <properties>
@@ -44,8 +45,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Modularized JDK support (various workarounds) - activated via profile -->
-    <modular.jdk.args></modular.jdk.args>
-    <modular.jdk.props></modular.jdk.props>
+    <modular.jdk.args />
+    <modular.jdk.props />
 
     <version.clean.plugin>3.1.0</version.clean.plugin>
     <version.dependency.plugin>2.10</version.dependency.plugin>
@@ -68,8 +69,8 @@
     <version.surefire.plugin>2.22.1</version.surefire.plugin>
     <version.failsafe.plugin>${version.surefire.plugin}</version.failsafe.plugin>
     <!-- Surefire args -->
-    <surefire.extra.args></surefire.extra.args>
-    <surefire.jpda.args></surefire.jpda.args>
+    <surefire.extra.args />
+    <surefire.jpda.args />
     <surefire.system.args>${modular.jdk.args} ${modular.jdk.props} -ea -Duser.region=US -Duser.language=en -XX:MaxMetaspaceSize=512m ${surefire.jpda.args} ${surefire.extra.args}</surefire.system.args>
     <surefire.logmanager>org.jboss.logmanager.LogManager</surefire.logmanager>
     <surefire.redirect.tofile>true</surefire.redirect.tofile>
