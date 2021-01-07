@@ -22,6 +22,12 @@
   <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Java Parent Project</name>
+
+  <description>
+    The parent pom for any Java projects. It defines common plugins for easy startup.
+  </description>
+  <url>https://github.com/gaol/java-parent</url>
+
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -33,9 +39,19 @@
   <scm>
     <connection>scm:git:git@github.com:gaol/java-parent.git</connection>
     <developerConnection>scm:git:git@github.com:gaol/java-parent.git</developerConnection>
-    <url>http://github.com/gaol/java-parent</url>
+    <url>https://github.com/gaol/java-parent</url>
     <tag>HEAD</tag>
   </scm>
+
+  <developers>
+    <developer>
+      <id>project-lead</id>
+      <name>Lin Gao</name>
+      <organization>OpenSource Developer</organization>
+      <organizationUrl>https://github.com/gaol/</organizationUrl>
+      <url>https://github.com/gaol/</url>
+    </developer>
+  </developers>
 
   <properties>
     <maven.compiler.version>1.8</maven.compiler.version>
