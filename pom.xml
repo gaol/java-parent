@@ -57,12 +57,10 @@
     <maven.compiler.version>11</maven.compiler.version>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.testTarget>${maven.compiler.target}</maven.compiler.testTarget>
+    <maven.compiler.testSource>${maven.compiler.source}</maven.compiler.testSource>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <!-- Modularized JDK support (various workarounds) - activated via profile -->
-    <modular.jdk.args />
-    <modular.jdk.props />
 
     <version.clean.plugin>3.3.2</version.clean.plugin>
     <version.dependency.plugin>3.6.1</version.dependency.plugin>
@@ -94,47 +92,9 @@
 
     <fatjar.main.class />
     <exec.main.class>${fatjar.main.class}</exec.main.class>
-    <version.slf4j>1.7.21</version.slf4j>
-    <version.log4j2>2.17.1</version.log4j2>
-    <version.junit>4.13.1</version.junit>
+    <maven.min.version>3.6.2</maven.min.version>
+    <jdk.min.version>${maven.compiler.source}</jdk.min.version>
   </properties>
-
-  <dependencyManagement>
-    <dependencies>
-
-      <!-- Loggers -->
-      <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-api</artifactId>
-        <version>${version.log4j2}</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-core</artifactId>
-        <version>${version.log4j2}</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${version.slf4j}</version>
-        <optional>true</optional>
-      </dependency>
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>${version.junit}</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>${version.slf4j}</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <build>
     <pluginManagement>
@@ -144,22 +104,18 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${version.compiler.plugin}</version>
           <configuration>
-            <compilerVersion>${maven.compiler.version}</compilerVersion>
-            <fork>true</fork>
-            <source>${maven.compiler.source}</source>
-            <target>${maven.compiler.target}</target>
-            <debug>true</debug>
-            <optimize>true</optimize>
             <showDeprecation>true</showDeprecation>
             <showWarnings>true</showWarnings>
-            <compilerArgument>-Xlint:-options</compilerArgument>
-            <meminitial>256m</meminitial>
-            <maxmem>1024m</maxmem>
-            <excludes>
-               <exclude>**/package-info.java</exclude>
-            </excludes>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+            <testSource>${maven.compiler.testSource}</testSource>
+            <testTarget>${maven.compiler.testTarget}</testTarget>
+            <compilerArgs>
+              <arg>-Xlint:unchecked</arg>
+            </compilerArgs>
           </configuration>
         </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
@@ -376,12 +332,12 @@
         <snapshotRepository>
           <id>sonatype-nexus-snapshots</id>
           <name>Sonatype Nexus Snapshots</name>
-          <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <repository>
           <id>sonatype-nexus-staging</id>
           <name>Nexus Release Repository</name>
-          <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
       </distributionManagement>
 
