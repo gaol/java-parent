@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.gaol</groupId>
   <artifactId>java-parent</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Java Parent Project</name>
 
@@ -40,7 +40,7 @@
     <connection>scm:git:git@github.com:gaol/java-parent.git</connection>
     <developerConnection>scm:git:git@github.com:gaol/java-parent.git</developerConnection>
     <url>https://github.com/gaol/java-parent</url>
-    <tag>java-parent-1.0.4</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <developers>
