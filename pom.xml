@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.gaol</groupId>
   <artifactId>java-parent</artifactId>
-  <version>1.0.5-SNAPSHOT</version>
+  <version>1.0.4-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Java Parent Project</name>
 
